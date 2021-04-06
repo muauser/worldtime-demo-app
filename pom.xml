@@ -32,6 +32,17 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
+				<cloudHubDeployment>
+				<username>muauser11</username>
+				<password>Muauser11</password>
+				<environment>Sandbox</environment>
+				<workers>1</workers>
+				<workerType>Micro</workerType>
+				<applicationName>worldtime-demp-app</applicationName>
+				<muleVersion>4.3.0</muleVersion>
+				<businessGroup>mule</businessGroup>
+				<objectStoreV2>true</objectStoreV2>
+				</cloudHubDeployment>
 				<classifier>mule-application</classifier>
                 </configuration>
 			</plugin>
