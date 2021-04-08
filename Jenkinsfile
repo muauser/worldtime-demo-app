@@ -14,7 +14,7 @@ bat 'mvn package deploy -DmuleDeploy'
 
 stage('Perform Regression Testing'){
 steps{
-bat 'C:\\Users\\aadhya\\AppData\\Roaming\\npm run C:\\Newman\\WorldTime-Demo.postman_collection.json --disable-unicode'
+bat 'C:\\Users\\aadhya\\AppData\\Roaming\\npm\\newman run C:\\Newman\\WorldTime-Demo.postman_collection.json --disable-unicode'
 }}
 
 }
