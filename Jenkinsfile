@@ -4,7 +4,7 @@ agent any
 stages{
 stage('Build Application'){
 steps{
-bat 'mvn clean install'
+bat 'mvn clean install -DskipTests=true'
 }}
 
 stage('Test MUnit Application'){
