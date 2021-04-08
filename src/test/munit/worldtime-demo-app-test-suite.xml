@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="worldtime-demo-app-test-suite.xml" />
+	<munit:test name="worldtime-demo-app-test-suite-worldtime-demo-appFlowTest" doc:id="c22b147d-05cc-43f0-ae0e-9cc26ce64946" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow Reference" doc:id="b3bd2264-21cc-4cb0-8a49-a05f9d613fde" name="worldtime-demo-app-test-suiteFlow"/>
+			<flow-ref doc:name="Flow-ref to worldtime-demo-appFlow" doc:id="9ffbc773-d9b9-4827-bc41-00d8b33f9535" name="worldtime-demo-appFlow"/>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-that doc:name="Assert that" doc:id="f8f4f6ee-0328-4564-be82-f3a7971fee0a" expression="#[payload]" is="#[MunitTools::notNullValue()]" message="payload is null"/>
+		</munit:validation>
+	</munit:test>
+	<flow name="worldtime-demo-app-test-suiteFlow" doc:id="be0b1e88-8825-46b9-bbbe-261ee83eefe7" >
+		<munit:set-event doc:name="Set Event" doc:id="28608d29-0d89-4623-8430-c41e58d6875c">
+				<munit:attributes value="#[{uriParams:{region:'Asia',city:'Kolkata'}}]" />
+			</munit:set-event>
+	</flow>
+	<munit:test name="worldtime-demo-app-test-suite-worldtime-demo-appFlowTest2" doc:id="05e305ed-7a1c-4b5d-804d-b292814300de" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow Reference" doc:id="decc47ee-ef9c-4b51-a4be-a812c1f93d57" name="worldtime-demo-app-test-suiteFlow"/>
+			<flow-ref doc:name="Flow-ref to worldtime-demo-appFlow" doc:id="52947db0-4dbe-438f-9e3d-b0add3044c6c" name="worldtime-demo-appFlow"/>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-that doc:name="Assert that" doc:id="6ab97c5f-3936-492b-b1d0-3c8b7311eb19" expression="#[payload]" is="#[MunitTools::withMediaType('application/json')]" message="media type is not correct"/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

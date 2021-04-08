@@ -7,6 +7,11 @@ steps{
 bat 'mvn clean install'
 }}
 
+stage('Test MUnit Application'){
+steps{
+bat 'mvn test'
+}}
+
 stage('Deploy Application to Mulesoft CloudHUb'){
 steps{
 bat 'mvn package deploy -DmuleDeploy'
